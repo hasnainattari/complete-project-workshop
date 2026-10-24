@@ -26,7 +26,7 @@ export async function runAiCall(opts: {
     fetch: runIdFetch.fetch,
   });
   const result = streamText({
-    model: provider.responses(AI_MODEL),
+    model: provider.responses(AI_MODEL) as never,
     ...(opts.instructions ? { instructions: opts.instructions } : {}),
     messages: opts.messages,
     ...(opts.tools && Object.keys(opts.tools).length
