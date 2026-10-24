@@ -66,8 +66,10 @@ export function minutesOfDayInTz(date: Date, timezone: string): number {
 }
 
 export function parseHm(hm: string): number {
-  const [h, m] = hm.split(":").map(Number);
-  return (h || 0) * 60 + (m || 0);
+  const parts = hm.split(":").map(Number);
+  const h = Number(parts[0] ?? 0) || 0;
+  const m = Number(parts[1] ?? 0) || 0;
+  return h * 60 + m;
 }
 
 // ---------- attendance rules ----------
